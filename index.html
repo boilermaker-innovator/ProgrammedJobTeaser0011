@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Teaser | Programmed - Boilermaker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 5px auto;
+            padding: 5px;
+            background-color: #f0f0f0;
+        }
+        .job-teaser {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border: 2px solid #0066cc;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            background-color: #0066cc;
+            padding: 10px;
+        }
+        .logo {
+            width: 150px;
+            height: auto;
+            margin-right: 10px;
+        }
+        .job-title {
+            color: white;
+            font-size: 1.4em;
+            font-weight: bold;
+            margin: 0;
+            flex-grow: 1;
+            text-align: left;
+            padding-left: 20px;
+        }
+        .content {
+            padding: 5px;
+            position: relative;
+            overflow: hidden;
+            min-height: 160px;
+        }
+        .slide {
+            display: none;
+            animation: fadeEffect 0.5s;
+        }
+        .slide.active {
+            display: block;
+        }
+        @keyframes fadeEffect {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+        .nav-dots {
+            text-align: center;
+            margin-top: 2px;
+        }
+        .dot {
+            height: 8px;
+            width: 8px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 3px;
+            cursor: pointer;
+        }
+        .dot.active {
+            background-color: #0066cc;
+        }
+        .full-ad-toggle {
+            text-align: right;
+            padding: 2px 5px;
+            background-color: #f0f0f0;
+            font-size: 0.9em;
+        }
+        .full-job-ad {
+            display: none;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-top: 1px solid #ddd;
+            font-size: 0.9em;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .apply-button {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            background-color: #0066cc;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+        .apply-button:hover {
+            background-color: #0052a3;
+        }
+        h2 {
+            margin: 5px 0;
+            color: #0066cc;
+            font-size: 1.1em;
+        }
+        ul {
+            margin: 3px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 2px;
+        }
+        p {
+            margin: 3px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="job-teaser">
+        <div class="header">
+            <img src="https://imgur.com/T9qH4cP.png" alt="Programmed Logo" class="logo">
+            <h1 class="job-title">Boilermaker</h1>
+        </div>
+        <div class="content">
+            <div class="slide active">
+                <h2>Job Overview</h2>
+                <p>Join Programmed as a Boilermaker in Kalgoorlie:</p>
+                <ul>
+                    <li>👥 Great team environment</li>
+                    <li>👪 Family Friendly Hours</li>
+                    <li>📈 Career progression and growth opportunities</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <h2>Key Details</h2>
+                <ul>
+                    <li>📍 Location: Kalgoorlie (Local residents encouraged, FIFO from Perth considered)</li>
+                    <li>⏰ Monday to Friday, 9 Hour Days</li>
+                    <li>🚀 Commencing ASAP</li>
+                    <li>💼 Previous mine site or refinery experience required</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <h2>Requirements</h2>
+                <ul>
+                    <li>🎓 Australian Trade Certificate</li>
+                    <li>🔧 Pipe Welding Experience (highly regarded)</li>
+                    <li>🏗️ Nationally Accredited Confined Space & Working at Heights</li>
+                    <li>🦺 Construction White Card</li>
+                    <li>🏅 High risk licenses (highly regarded)</li>
+                </ul>
+            </div>
+            <div class="slide">
+                <h2>Benefits</h2>
+                <ul>
+                    <li>💰 Competitive pay rates</li>
+                    <li>💼 All hours superannuation paid</li>
+                    <li>🏖️ MyLeave - Construction Industry Long Service Leave</li>
+                    <li>🦺 PPE Provided</li>
+                    <li>🤝 Onsite employee support</li>
+                    <li>🔄 Potential for ongoing work</li>
+                </ul>
+            </div>
+        </div>
+        <div class="nav-dots">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
+        <div class="full-ad-toggle">
+            <label for="fullAdToggle">Show Full Job Ad</label>
+            <input type="checkbox" id="fullAdToggle" onclick="toggleFullAd()">
+        </div>
+        <div class="full-job-ad" id="fullJobAd">
+            <h2>Full Job Description</h2>
+            <p><strong>About the company:</strong> Programmed employs over 30,000 people every year across a broad range of industries and partners with more than 10,000 customers, small and large.</p>
+            
+            <h3>About the role:</h3>
+            <p>We are currently seeking Boilermakers in Kalgoorlie. Local Residents encouraged to apply. FIFO from Perth Considered. Working Monday to Friday | 9 Hour Days | This role is commencing ASAP.</p>
+            <p>Successful applicants will have previous mine site or refinery experience, with a strong work ethic and demonstrated commitment to safety.</p>
+
+            <h3>Skills and Experience:</h3>
+            <ul>
+                <li>Australian Trade Certificate</li>
+                <li>Pipe Welding Experience (highly regarded)</li>
+                <li>Nationally Accredited Confined Space</li>
+                <li>Nationally Accredited Working at Heights</li>
+                <li>Construction White Card</li>
+                <li>High risk licenses (highly regarded)</li>
+                <li>Previous mining and/or shutdown experience (highly regarded)</li>
+                <li>Demonstrated commitment to safety</li>
+                <li>Ability to pass a pre-employment drug and alcohol screen</li>
+            </ul>
+
+            <h3>What you need to know:</h3>
+            <ul>
+                <li>Great pay rates on offer</li>
+                <li>All hours superannuation paid!</li>
+                <li>We pay into MyLeave - Construction Industry Long Service Leave</li>
+                <li>PPE Provided</li>
+                <li>Onsite employee support</li>
+                <li>Potential for ongoing work for the right candidate</li>
+            </ul>
+
+            <p>For further questions email: recruitment.wa@programmed.com.au</p>
+
+            <h3>About our Process:</h3>
+            <p>As part of the recruitment process for this position, there are a number of checks that may be conducted to demonstrate candidate suitability which includes but is not limited to: right to work checks; phone interview; on-site interview; completing a drug and alcohol test. If you are applying for this role, please consider this requirement when submitting your application.</p>
+
+            <h3>Diversity & Inclusion Statement:</h3>
+            <p>We strive for a team that reflects a diverse society in consideration of culture, gender, age, sexual orientation and abilities. We recognise the value and importance of attracting, engaging and retaining employees with different backgrounds, experience and perspectives. We aim to create a safe and inclusive environment, where people are treated equally and are free of all forms of discrimination.</p>
+        </div>
+        <a href="https://www.seek.com.au/Boilermaker-jobs/in-Kalgoorlie-WA-6430?jobId=78137055&type=standout" class="apply-button" target="_blank">Apply Now</a>
+    </div>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].classList.remove("active");  
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].classList.remove("active");
+            }
+            slides[slideIndex-1].classList.add("active");  
+            dots[slideIndex-1].classList.add("active");
+        }
+
+        function toggleFullAd() {
+            const fullJobAd = document.getElementById("fullJobAd");
+            const checkbox = document.getElementById("fullAdToggle");
+            fullJobAd.style.display = checkbox.checked ? "block" : "none";
+        }
+
+        // Auto-slide functionality
+        setInterval(() => {
+            plusSlides(1);
+        }, 5000); // Change slide every 5 seconds
+    </script>
+</body>
+</html>
